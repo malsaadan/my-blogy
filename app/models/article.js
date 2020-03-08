@@ -15,9 +15,8 @@ const articleSchema = new mongoose.Schema(
   }
 );
 
-
 // Compile our Model based on the Schema
-const Article = mongoose.model('Article', articleSchema);
+const Article = mongoose.model("Article", articleSchema); // Article in string is the name of the collection
 
 // Export our Model for use
 module.exports = Article;

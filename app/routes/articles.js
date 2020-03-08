@@ -8,10 +8,10 @@ const Article = require("../models/article");
 const router = express.Router();
 
 /*
- * Action:   INDEX
- * Method:   GET
- * URI:      /api/articles
- * Description:  Get All Articles
+ * Action:      INDEX
+ * Method:      GET
+ * URI:         /api/articles
+ * Description: Get All Articles
  */
 
 router.get("/api/articles", (req, res) => {
@@ -27,6 +27,36 @@ router.get("/api/articles", (req, res) => {
       });
     });
 });
+
+
+/* 
+    * Action:       SHOW
+    * Method:       GET
+    * URI:          /api/article/9b9ceb63c8e8
+    * Description:  Get an Article by Article ID
+*/
+
+/* 
+    * Action:       CREATE
+    * Method:       POST
+    * URI:          /api/articles
+    * Description:  Create a new Article
+*/
+
+// PUT updates whole document, PATCH doing some process then update
+/* 
+    * Action:       UPDATE
+    * Method:       PATCH
+    * URI:          /api/articles/9b9ceb63c8e8
+    * Description:  Update an Article by Article ID
+*/
+
+/* 
+    * Action:       DESTROY
+    * Method:       DELETE
+    * URI:          /api/articles/9b9ceb63c8e8
+    * Description:  Delete an Article by Article ID
+*/
 
 // Export the Router so we can use it in the server.js file
 module.exports = router;

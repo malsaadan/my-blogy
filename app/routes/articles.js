@@ -86,6 +86,30 @@ router.post("/api/articles", (req, res) => {
  * URI:          /api/articles/9b9ceb63c8e8
  * Description:  Update an Article by Article ID
  */
+router.patch("/api/articles/:id", (req, res) => {
+  Article.findById(req.params.id)
+  .then(article => {
+    if (article) {
+      return article.updateOne(req.body.article);
+    } else {
+      // If we couldn't find a document with the matching ID
+      res.status(404).json({
+        error: {
+          name: "DocumentNotFoundError",
+          message: "The provided ID Doesn't match any documents"
+        }
+      });
+    }
+  })
+  .then(() => {
+    // If the deletion succeeded, return 204 and no JSON
+    res.status(200).end();
+  })
+  // Catch any errors that might occur
+  .catch(article => {
+    res.status(500).json({ error: error });
+  });
+});
 
 /*
  * Action:       DESTROY

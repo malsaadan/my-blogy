@@ -102,7 +102,7 @@ router.patch("/api/articles/:id", (req, res) => {
     }
   })
   .then(() => {
-    // If the deletion succeeded, return 204 and no JSON
+    // If the update succeeded, return 200 
     res.status(200).end();
   })
   // Catch any errors that might occur
